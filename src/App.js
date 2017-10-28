@@ -2,7 +2,8 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom'
 import './App.css'
 import Main from 'VIEW/Main/'
@@ -14,7 +15,8 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/adminLogin" component={Login} />
-          <Route path="/" component={Main} />            
+          <Route path="/" component={Main} />
+          <Redirect to="/" />            
         </Switch>
       </Router>
     );
