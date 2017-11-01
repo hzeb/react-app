@@ -3,4 +3,121 @@
     width: 100vw;
     height: 750px;
   }
+  .intro_content {
+    font-size: 0;
+    box-shadow: 1px 0px 3px 2px #c1c1c1;
+    .company_left {
+      display: inline-block;
+      width: 50%;
+      height: 380px;
+      padding: 40px;
+      background: #fff;
+      vertical-align: top;
+      h3 {
+        font-size: 20px;
+        i {
+          display: inline-block;
+          width: 4px;
+          height: 22px;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-top: -4px;
+          background: #333;
+          vertical-align: middle;
+        }
+        span {
+          font-size: 14px;
+          text-transform: uppercase;
+          color: #999;
+        }
+      }
+      h4 {
+        margin: 20px 0 10px;
+        font-size: 16px;
+        span {
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+      p {
+        font-family: "宋体";
+        font-size: 16px;
+        line-height: 24px;
+        padding-top: 10px;
+        color: #000;
+      }
+    }
+    .company_right {
+      display: inline-block;
+      width: 50%;
+      height: 380px;
+      background: url(img/intro_1.png);
+    }
+    
+    .product_left {
+      display: inline-block;
+      width: 400px;
+      height: 535px;
+      background: url(img/p1.png);
+    }
+
+    .product_middle {
+      display: inline-block;
+      width: 281px;
+      height: 535px;
+      margin: 0 19px;
+      background: url(img/p2.png);
+    }
+
+    .product_right {
+      display: inline-block;
+      width: 281px;
+      .product_right_top {
+        height: 256px;
+        width: 281px;
+        background: url(img/p3.png);
+      }
+      .product_right_bottom {
+        height: 256px;
+        width: 281px;
+        margin-top: 22px;
+        background: url(img/p4.png);
+      }
+    }
+  }
+
+  .hot_category {
+    height: 520px;
+    background: url(img/hot_cate.png) no-repeat center top;
+    h2 {
+      font-size: 28px;
+      color: #fff;
+      text-align: center;
+    }
+    h3 {
+      font-size: 26px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .hot_list {
+      height: 100px;
+      li {
+        position: relative;
+        float: left;
+        width: 12.4%;
+        height: 94px;
+        border-right: 1px dashed #999;
+        &:last-child {
+          border-right: none;
+        }
+        img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 }
