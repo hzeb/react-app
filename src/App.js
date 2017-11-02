@@ -6,8 +6,14 @@ import {
   Redirect
 } from 'react-router-dom'
 import './App.css'
-import Main from 'VIEW/Main/'
-import Login from 'VIEW/Login/'
+import asyncComponent from 'UTIL/asyncComponent'
+
+const Main = asyncComponent(() =>
+  import('VIEW/Main/').then(module => module.default)
+)
+const Login = asyncComponent(() =>
+  import('VIEW/Login/').then(module => module.default)
+)
 
 class App extends React.Component {
   render() {

@@ -10,7 +10,9 @@ class Slide extends React.Component {
     super(props);
     this.state = {
       timeout: null,
-      animate: false,
+      animate: {
+        marginLeft: 0
+      },
       list: props.list.slice()
     }
   }
@@ -21,17 +23,26 @@ class Slide extends React.Component {
     clearTimeout(this.state.timeout);
   }
   startSlide() {
-    let list = this.state.list.slice();
-    let t = this.state.timeout;
+    let list = this.state.list.slice(),
+    t = this.state.timeout,
+    transition_duration = 500,
+    animate_duration = 2000;
+
     const autoPlay = () => {
       clearTimeout(this.state.timeout);
-      this.setState({animate: true});
+      this.setState({animate: {
+        transition: `margin ${transition_duration}ms`,
+        marginLeft: '-165px'
+      }});
       setTimeout(() => {
-        this.setState({animate: false});
+        this.setState({animate: {
+          marginLeft: 0
+        }});
         list.push(list.splice(0,1)[0]);
         this.setState({list: list});
-      }, 500);     
-      t = setTimeout(autoPlay, 2000);
+      }, transition_duration); 
+
+      t = setTimeout(autoPlay, animate_duration);
       this.setState({timeout: t}); 
     };
     autoPlay();
@@ -40,7 +51,7 @@ class Slide extends React.Component {
     const {list} = this.state;
     return (
       <div className='slide_box'>
-        <ul className={this.state.animate?'animate':''} onMouseEnter={this.stopSlide.bind(this)} onMouseLeave={this.startSlide.bind(this)}>
+        <ul style={this.state.animate} onMouseEnter={this.stopSlide.bind(this)} onMouseLeave={this.startSlide.bind(this)}>
           {list.map(m => (
             <li>
              <Link to={m.url}>
