@@ -10,6 +10,8 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const alias = require('./alias');
@@ -279,6 +281,18 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(paths.appBuild, {
+      root: paths.appDirectory,
+      verbose: false,
+      exclude: ['.', '.git', '.gitignore']
+    }),
+    new CopyWebpackPlugin([ // 复制高度静态资源
+      {
+        context: paths.appPublic,
+        from: '**/*',
+        ignore: ['*.md']
+      }
+    ]),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
