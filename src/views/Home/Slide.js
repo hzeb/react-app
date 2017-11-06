@@ -52,8 +52,8 @@ class Slide extends React.Component {
     return (
       <div className='slide_box'>
         <ul style={this.state.animate} onMouseEnter={this.stopSlide.bind(this)} onMouseLeave={this.startSlide.bind(this)}>
-          {list.map(m => (
-            <li>
+          {list.map((m, index) => (
+            <li key={index}>
              <Link to={m.url}>
                <img src={m.pitcture} alt=''/>
              </Link>

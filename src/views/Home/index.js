@@ -59,8 +59,8 @@ class Home extends React.Component {
           <h3>Hot category</h3>
           <div className='Section'>
             <ul className='hot_list'>
-              {hotLists.map(m => (
-                <li>
+              {hotLists.map((m, index) => (
+                <li key={index}>
                  <Link to={m.url}>
                    <img src={m.pitcture} alt=''/>
                  </Link>
@@ -73,8 +73,8 @@ class Home extends React.Component {
 
         <Section title='店面展示' comment='Store display' abstract='终端门店 强势覆盖一二线城市，填补茶叶终端门店市场'>
           <div className='intro_content stores_content'>
-            {stores.map(s => (
-              <Link to={s.url}>
+            {stores.map((s, index) => (
+              <Link to={s.url} key={index}>
                 <div className='store_box'>
                   <img src={s.pitcture} alt='' width='220'/>
                   <p>御品茶缘连锁店</p>
@@ -88,8 +88,8 @@ class Home extends React.Component {
 
         <Section title='招商加盟' comment='Merchants join' abstract='新零售 数字化 移动互联 低成本 高收益'>
           <div className='intro_content join_content'>
-            {joins.map(j => (
-              <Link to={j.url}>
+            {joins.map((j, index) => (
+              <Link to={j.url} key={index}>
                 <div className='join_box'>
                   <p>{j.p1}</p>
                   <p>{j.p2}</p>
@@ -112,8 +112,8 @@ class Home extends React.Component {
               <div className='line'></div>
               <div className='news_img'><img src={news_img} alt='御品茶缘新闻' width='420' height='200'/></div>
               <ul className='news_list'>
-                {news.map(n => (
-                  <Link to='/'>
+                {news.map((n, index) => (
+                  <Link to='/' key={index}>
                     <li>
                       <span className='left'><i></i>{n.title}</span>
                       <span className='right'>{n.time}</span>
@@ -127,8 +127,8 @@ class Home extends React.Component {
               <div className='line'></div>
               <div className='news_img'><img src={trends_img} alt='行业动态' width='420' height='200'/></div>
               <ul className='news_list'>
-                {trends.map(t => (
-                  <Link to='/'>
+                {trends.map((t, index) => (
+                  <Link to='/' key={index}>
                     <li>
                       <span className='left'><i></i>{t.title}</span>
                       <span className='right'>{t.time}</span>

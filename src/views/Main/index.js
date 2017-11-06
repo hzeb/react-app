@@ -14,6 +14,9 @@ import asyncComponent from 'UTIL/asyncComponent'
 const Home = asyncComponent(() =>
   import('VIEW/Home/').then(module => module.default)
 )
+const Company = asyncComponent(() =>
+  import('VIEW/Company/').then(module => module.default)
+)
 const Setting = asyncComponent(() =>
   import('VIEW/Setting/').then(module => module.default)
 )
@@ -28,7 +31,7 @@ class Main extends React.Component {
           <div className='navbar_container'>
             <ul className='navbar'>
               {menus.map(m => (
-                <li className={this.props.location.pathname === m.url?'active':''}>
+                <li className={this.props.location.pathname.split('/')[1] === m.url.split('/')[1]?'active':''} key={m.url}>
                  <Link to={m.url}>
                    {m.name}
                  </Link>
@@ -39,8 +42,9 @@ class Main extends React.Component {
         </header>
         <article className='main_article'>
           <Switch>
-            <Route exact path={`${this.props.match.url}`} component={Home}/>
-            <Route exact path='/setting' component={Setting}/>
+            <Route exact path='/' component={Home}/>
+            <Route path='/company' component={Company}/>
+            <Route path='/setting' component={Setting}/>
             <Redirect to="/" />
           </Switch>
         </article>
@@ -48,7 +52,7 @@ class Main extends React.Component {
           <div className='navbar_container'>
             <ul className='navbar'>
               {menus.map(m => (
-                <li className={this.props.location.pathname === m.url?'active':''}>
+                <li className={this.props.location.pathname.split('/')[1] === m.url.split('/')[1]?'active':''} key={m.url}>
                  <Link to={m.url}>
                    {m.name}
                  </Link>
@@ -57,7 +61,7 @@ class Main extends React.Component {
             </ul>
           </div>
           <Contact />
-          <div class="bottom">
+          <div className="bottom">
             <p>版权所有：广东御品茶缘茶叶有限公司   备案号：湘ICP备17003358号-1 技术支持：<a>广州仙女网络</a></p>
           </div>
         </footer>

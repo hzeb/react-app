@@ -3,24 +3,24 @@ export default [{
     url: '/'
   },{
     name: '公司简介',
-    url: '/setting'
+    url: '/company/sketch'
   },{
     name: '产品中心',
-    url: '/1'
+    url: '/product'
   },{
     name: '店面展示',
-    url: '/2'
+    url: '/store'
   },{
     name: '招商加盟',
-    url: '/3'
+    url: '/merchants'
   },{
     name: '新闻资讯',
-    url: '/4'
-  },{
-    name: '经销商专区',
-    url: '/5'
+    url: '/news'
   },{
     name: '联系我们',
-    url: '/6'
+    url: '/contact'
+  },{
+    name: '设置',
+    url: '/setting'
   }
 ]
