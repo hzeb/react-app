@@ -17,6 +17,12 @@ const Home = asyncComponent(() =>
 const Company = asyncComponent(() =>
   import('VIEW/Company/').then(module => module.default)
 )
+const News = asyncComponent(() =>
+  import('VIEW/News/').then(module => module.default)
+)
+const ContactUs = asyncComponent(() =>
+  import('VIEW/ContactUs/').then(module => module.default)
+)
 const Setting = asyncComponent(() =>
   import('VIEW/Setting/').then(module => module.default)
 )
@@ -44,6 +50,8 @@ class Main extends React.Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route path='/company' component={Company}/>
+            <Route path='/news' component={News}/>
+            <Route exact path='/contactus/phone' component={ContactUs}/>
             <Route path='/setting' component={Setting}/>
             <Redirect to="/" />
           </Switch>

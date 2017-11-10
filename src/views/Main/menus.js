@@ -15,10 +15,10 @@ export default [{
     url: '/merchants'
   },{
     name: '新闻资讯',
-    url: '/news'
+    url: '/news/press'
   },{
     name: '联系我们',
-    url: '/contact'
+    url: '/contactus/phone'
   },{
     name: '设置',
     url: '/setting'

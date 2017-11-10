@@ -31,7 +31,7 @@ class SideBar extends React.Component {
             {products.map((p, index) => (
               <Link to={p.url} key={index}>
                 <li>
-                  <img src={p.picture} width='83' height='74'/>
+                  <img src={p.picture} width='83' height='74' alt=''/>
                   <p>{p.name}</p>
                 </li>
               </Link>

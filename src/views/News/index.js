@@ -12,14 +12,14 @@ import sideMenus from './sideMenus'
 
 import asyncComponent from 'UTIL/asyncComponent'
 
-const Sketch = asyncComponent(() =>
-  import('VIEW/Company/Sketch').then(module => module.default)
+const NewsList = asyncComponent(() =>
+  import('VIEW/News/NewsList').then(module => module.default)
 )
 
-class Company extends React.Component {
+class News extends React.Component {
   render() {
     return (
-      <div className='Company'>
+      <div className='News'>
         <div className='header_img'></div>
         <div className='content_area'>
           <div className='aside'>
@@ -28,10 +28,9 @@ class Company extends React.Component {
           <div className='main_area'>
             <Breadcrumb location={this.props.location}/>
             <Switch>
-              <Route exact path={`${this.props.match.url}/sketch`} component={Sketch}/>
-              <Route exact path={`${this.props.match.url}/origin`} component={Sketch}/>
-              <Route exact path={`${this.props.match.url}/vision`} component={Sketch}/>
-              <Route exact path={`${this.props.match.url}/manor`} component={Sketch}/>
+              <Route exact path={`${this.props.match.url}/press`} component={NewsList}/>
+              <Route exact path={`${this.props.match.url}/trend`} component={NewsList}/>
+              <Route exact path={`${this.props.match.url}/culture`} component={NewsList}/>
               <Redirect to={`${this.props.match.url}`} />
             </Switch>
           </div>   
@@ -41,4 +40,4 @@ class Company extends React.Component {
   }
 }
 
-export default Company
+export default News

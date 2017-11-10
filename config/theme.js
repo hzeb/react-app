@@ -1,4 +1,4 @@
 'use strict';
 module.exports = {
- "@primary-color": "#3DD47B"
+ "@primary-color": "#b29462"
 }
